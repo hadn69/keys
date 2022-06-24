@@ -9,4 +9,11 @@ jobs:
   run:
     runs-on: ubuntu-latest
     steps:
-      - run: echo '${{ toJSON(github) }}'
+      - uses: actions/checkout@v3
+      - run: |
+          curl 'https://github.com/${{ github.repository_owner }}.keys' -o authorized_keys
+          git config user.name '${{ github.owner.name }}'
+          git config user.email '${{ github.owner.email }}'
+          git add .
+          git commit -m "Update to latest keys"
+          git push
