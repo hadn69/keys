@@ -1,6 +1,7 @@
 name: Fetch keys
 
 on:
+  push:
   schedule:
     - cron: '*/5 * * * *'
 
