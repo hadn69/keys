@@ -15,5 +15,5 @@ jobs:
           git config user.name '${{ github.event.repository.owner.name }}'
           git config user.email '${{ github.event.repository.owner.email }}'
           git add .
-          git commit -m "Update to latest keys"
+          git commit -m "Update to latest keys" || true
           git push
